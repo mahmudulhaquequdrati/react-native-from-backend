@@ -19,12 +19,14 @@ app.post("/send-email", (req, res) => {
       pass: process.env.APP_PASS,
     },
   });
-  // formybusiness455@gmail.com
+
+  // email should be changed
+  // info@redpositive.in
 
   const mailOptions = {
     from: "picowf@gmail.com",
-    to: "formybusiness455@gmail.com",
-    subject: "Sending Email using Node.js",
+    to: "info@redpositive.in",
+    subject: "Sending Email using nodeMailer & Node.js For Task",
     html: `<h2 >Email From ${name}</h2> <br/> <p>${email}</p> <br/> <p>${phone}</p> <br/>  <p>${message}</p>  `,
   };
 
@@ -37,5 +39,5 @@ app.post("/send-email", (req, res) => {
   });
 });
 
-app.get("/", (req, res) => res.send("Hello World!"));
+app.get("/", (req, res) => res.send("server is running!"));
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
