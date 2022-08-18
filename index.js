@@ -1,20 +1,15 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
 const app = express();
-const port = 5000 || process.env.PORT;
-require("dotenv").config();
+const port = process.env.PORT || 5000;
+
 const cors = require("cors");
 const { json } = require("express");
+require("dotenv").config();
 
 app.use(cors({ origin: true, credentials: true }));
 app.use(json());
 
-// // password
-// ujoamahkyifjlnon
-// app.post("/post", (req, res) => {
-//   console.log(req.body);
-//   res.send("ok");
-// });
 app.post("/send-email", (req, res) => {
   const { name, phone, email, message } = req.body;
   const transporter = nodemailer.createTransport({
